@@ -40,9 +40,12 @@ window.addEventListener("scroll", () => {
 // ===============================
 // Hamburger Menu Toggle
 // ===============================
-const hamburger = document.getElementById("hamburger");
-const menuList = document.querySelector(".menu-list");
 
-hamburger.addEventListener("click", () => {
-  menuList.classList.toggle("active");
+const ham = document.getElementById("hamburger");
+const menu = document.querySelector(".menu");
+
+ham.addEventListener("click", () => {
+  menu.classList.toggle("active");
 });
+
+
