@@ -11,6 +11,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         behavior: "smooth"
       });
     }
+
+    // Close menu after clicking (for mobile)
+    const menu = document.querySelector(".menu");
+    const hamburger = document.getElementById("hamburger");
+    menu.classList.remove("active");
+    hamburger.classList.remove("open");
   });
 });
 
@@ -18,12 +24,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Highlight Active Menu on Scroll
 // ===============================
 const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+const navLinks = document.querySelectorAll(".menu-list a");
 
 window.addEventListener("scroll", () => {
   let current = "";
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 80;
+    const sectionTop = section.offsetTop - 100;
     if (scrollY >= sectionTop) {
       current = section.getAttribute("id");
     }
@@ -40,16 +46,10 @@ window.addEventListener("scroll", () => {
 // ===============================
 // Hamburger Menu Toggle
 // ===============================
+const hamburger = document.getElementById('hamburger');
+const menu = document.querySelector('.menu');
 
-
-const ham = document.getElementById(".hamburger");
-const menu = document.querySelector(".menu");
-
-ham.addEventListener("click", () => {
-  menu.classList.toggle("active");
+hamburger.addEventListener('click', () => {
+  menu.classList.toggle('active');
+  hamburger.classList.toggle('open');
 });
-
-
-
-
-
