@@ -14,17 +14,21 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 100;
     background-image: linear-gradient(90deg, #04292d, #238a74, #7da7a6);
     background-color: transparent;
+    padding: 10px 30px;
+    transition: 0.3s ease;
 }
+
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
   cursor: pointer;
-   font-size: 2px;
-  gap: 8px;;
+  gap: 8px;
 }
+
 .logo img {
   height: 40px;
   width: 40px;
@@ -36,6 +40,7 @@ body {
 .logo img:hover {
   transform: scale(1.1);
 }
+
 .logo-heading {
   color: #fff;
   font-size: 1.4rem;
@@ -43,12 +48,10 @@ body {
   letter-spacing: 1px;
 }
 
-/* menu section */
-
+/* Menu Section */
 .menu {
     padding: 0 5rem;
 }
-
 
 .menu-list {
   display: flex;
@@ -66,23 +69,37 @@ body {
   color: #4f380c;
 }
 
+/* Hamburger Icons */
 .hamburger {
   display: none;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
-}
-.cross-icon {
-    display: none;
-    font-size: 20px;
-    cursor: pointer;
+  position: relative;
 }
 
-.hamburger i:hover{
-color: #cea06e;
+.hamburger i {
+  transition: all 0.3s ease;
 }
 
+.hamburger .fa-xmark {
+  display: none;
+}
 
+/* When open, show cross and hide bars */
+.hamburger.open .fa-bars {
+  display: none;
+}
+.hamburger.open .fa-xmark {
+  display: inline-block;
+  transform: rotate(180deg);
+  color: #cea06e;
+}
+
+/* Hover effect */
+.hamburger i:hover {
+  color: #cea06e;
+}
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
@@ -96,7 +113,8 @@ color: #cea06e;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: right 0.3s ease-in-out;
+    flex-direction: column;
+    transition: right 0.4s ease-in-out;
   }
 
   .menu.active {
@@ -105,17 +123,37 @@ color: #cea06e;
 
   .menu-list {
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
+    text-align: center;
   }
 
   .menu-list a {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 500;
   }
+  .menu-list a.active {
+  color: #ffcc70;
+  border-bottom: 2px solid #ffcc70;
+  transition: 0.3s ease;
+}
+
 
   .hamburger {
     display: block;
   }
+
+  .logo-heading {
+    font-size: 1.2rem;
+  }
+
+  .logo img {
+    height: 35px;
+    width: 35px;
+  }
 }
+
+
+
 
 /* Main Hero Section Styles */
 
